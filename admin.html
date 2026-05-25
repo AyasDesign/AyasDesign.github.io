@@ -5,11 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Aya's Design</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Լրացուցիչ ոճեր քարտերի և կոճակների համար */
+        .admin-card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            border: 1px solid #e2e8f0;
+        }
+        .admin-card img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+        }
+        .admin-actions { 
+            display: flex; 
+            gap: 10px; 
+            margin-top: 10px; 
+        }
+        .btn-edit { 
+            background: #eab308; 
+            color: white; 
+            border: none; 
+            padding: 8px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            flex: 1; 
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-delete { 
+            background: #ef4444; 
+            color: white; 
+            border: none; 
+            padding: 8px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.2s;
+        }
+        .btn-edit:hover { background: #ca8a04; }
+        .btn-delete:hover { background: #dc2626; }
+
+        #cancelBtn {
+            background: #64748b;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+            transition: 0.2s;
+        }
+        #cancelBtn:hover { background: #475569; }
+        
+        .portfolio-management-title {
+            text-align: center;
+            margin-top: 50px;
+            color: #1e293b;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
 
     <div class="admin-container">
-        <h2>Ավելացնել նոր գործ Պորտֆոլիոյում</h2>
+        <h2 id="formTitle">Ավելացնել նոր գործ Պորտֆոլիոյում</h2>
+        
         <form id="adminForm">
             <label>Ընտրել նկարը:</label>
             <input type="file" id="imgFile" accept="image/*" required>
@@ -21,31 +88,18 @@
             <textarea id="itemBio" rows="4" placeholder="Մանրամասն տեղեկություն աշխատանքի մասին..." required></textarea>
 
             <button type="submit" id="publishBtn">Publish</button>
+            <button type="button" id="cancelBtn" style="display: none;">Չեղարկել</button>
         </form>
 
-
-
-
-<h2 style="text-align: center; margin-top: 40px; color: #1e293b;">Կառավարել Պորտֆոլիոն</h2>
-<div id="adminPortfolioGrid" class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px;"></div>
-
-<style>
-  .admin-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; }
-  .admin-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
-  .admin-actions { display: flex; gap: 10px; margin-top: 10px; }
-  .btn-edit { background: #eab308; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; flex: 1; font-weight: bold;}
-  .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-  .btn-edit:hover { background: #ca8a04; }
-  .btn-delete:hover { background: #dc2626; }
-</style>
-
-
-
-        
         <div id="uploadStatus" style="margin-top: 15px; color: #4f46e5; font-weight: bold; text-align: center;"></div>
+        
         <br>
         <a href="index.html" class="back-link">← Վերադառնալ Գլխավոր էջ</a>
     </div>
+
+    <h2 class="portfolio-management-title">Կառավարել Պորտֆոլիոն</h2>
+    <div id="adminPortfolioGrid" class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto;">
+        </div>
 
     <script type="module" src="admin.js"></script>
 </body>
