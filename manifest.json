@@ -1,0 +1,21 @@
+{
+  "name": "Aya's Design Portfolio",
+  "short_name": "Aya's Design",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/192/layers.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://img.icons8.com/color/512/layers.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
