@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Aya's Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+        <h2>Ավելացնել նոր գործ Պորտֆոլիոյում</h2>
+        <form id="adminForm">
+            <label>Ընտրել նկարը:</label>
+            <input type="file" id="imgFile" accept="image/*" required>
+
+            <label>Գինը (AMD):</label>
+            <input type="number" id="itemPrice" placeholder="Օրինակ՝ 5000" required>
+
+            <label>Նկարագրություն (Bio):</label>
+            <textarea id="itemBio" rows="4" placeholder="Մանրամասն տեղեկություն աշխատանքի մասին..." required></textarea>
+
+            <button type="submit" id="publishBtn">Publish</button>
+        </form>
+        <div id="uploadStatus" style="margin-top: 15px; color: #4f46e5; font-weight: bold; text-align: center;"></div>
+        <br>
+        <a href="index.html" class="back-link">← Վերադառնալ Գլխավոր էջ</a>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+/* Ընդհանուր նախապատրաստում */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8fafc; /* Շատ հաճելի բաց գույն */
+    color: #1e293b;
+}
+
+/* Գլխամաս (Header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.header-blank {
+    width: 120px; /* Օգնում է, որ անունը մնա ճիշտ կենտրոնում */
+}
+
+.logo-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #4f46e5, #ec4899); /* Գեղեցիկ ժամանակակից գրադիենտ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f5f9;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+.admin-controls:hover {
+    background: #e2e8f0;
+    transform: scale(1.03);
+}
+
+.user-icon {
+    font-size: 18px;
+    color: #4f46e5;
+}
+
+.admin-btn {
+    font-weight: 600;
+    color: #475569;
+    font-size: 14px;
+}
+
+/* Պորտֆոլիոյի Քարտերի Ցանց (Grid) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 50px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Քարտերի (Cards) Դիզայն */
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.08);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+}
+
+.card-info {
+    padding: 20px;
+    background: #ffffff;
+}
+
+.card-price {
+    font-weight: 700;
+    color: #4f46e5;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.card-bio {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* IMAGE MODAL EFFECT (Մեծացող պատուհան) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Բաց, կաթնագույն թափանցիկ ֆոն */
+    backdrop-filter: blur(12px); /* Ուժեղ խամրեցման (blur) էֆեկտ հետևի մասի համար */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-wrapper {
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    animation: zoomIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.modal-content {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.modal-caption {
+    color: #1e293b;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #64748b;
+    font-size: 44px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #1e293b;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Admin Panel-ի Դիզայնը */
+.admin-container {
+    max-width: 550px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+}
+
+.admin-container h2 {
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #0f172a;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 14px;
+}
+
+input[type="file"], input[type="number"], textarea {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: all 0.2s;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #4f46e5;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+#publishBtn {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    transition: all 0.2s;
+}
+
+#publishBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    color: #4f46e5;
+}
